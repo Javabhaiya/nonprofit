@@ -144,7 +144,147 @@
 
   /* ABOUT */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; gap: 2.5rem; } .stats-inner { grid-template-columns: repeat(2, 1fr); } .stat-item:nth-child(2) { border-right: none; } .nav-links button { padding: 0.5rem 0.6rem; font-size: 0.82rem; } .footer-grid { grid-template-columns: 1fr; } }
+  /* MOBILE NAV TOGGLE */
+  .mobile-nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--navy-900); }
+  .mobile-nav-toggle svg { width: 26px; height: 26px; }
+
+  /* TABLET: 641px - 960px */
+  @media (max-width: 960px) {
+    .utility-bar { padding: 0.5rem 1.25rem; font-size: 0.72rem; }
+    nav.main-nav { padding: 0 1.25rem; height: 64px; }
+    .nav-logo-text { font-size: 1.05rem; }
+    .nav-logo-sub { font-size: 0.65rem; }
+    .nav-links button { padding: 0.5rem 0.7rem; font-size: 0.82rem; }
+    .hero { padding: 4.5rem 1.5rem 4rem; }
+    .hero-inner { padding: 0; }
+    .section { padding: 4rem 1.5rem; }
+    .page-header { padding: 3rem 1.5rem 2.5rem; }
+    .stat-item { padding: 1.75rem 1.5rem; }
+    .stat-num { font-size: 1.75rem; }
+    .two-col { gap: 3rem; }
+    .impact-strip, .donate-section { padding: 3.5rem 1.5rem; }
+    .featured-testimonial { padding: 3rem 2rem; }
+    .featured-testimonial::before { left: 2rem; }
+    .info-panel { padding: 2rem; }
+    .contact-grid { padding: 0 1.5rem; gap: 3rem; }
+    footer { padding: 3rem 1.5rem 1.5rem; }
+  }
+
+  /* MOBILE: ≤ 640px */
+  @media (max-width: 640px) {
+    /* Utility bar — stack into single info line */
+    .utility-bar { flex-direction: column; gap: 0.15rem; padding: 0.5rem 1rem; text-align: center; line-height: 1.4; }
+    .utility-bar span:last-child { display: none; }
+
+    /* Nav — collapse links into hamburger menu */
+    nav.main-nav { padding: 0 1rem; height: 60px; flex-wrap: nowrap; }
+    .nav-logo { gap: 0.5rem; }
+    .nav-logo-mark { width: 28px; height: 28px; font-size: 0.95rem; }
+    .nav-logo-text { font-size: 1rem; }
+    .nav-logo-sub { display: none; }
+    .nav-cta { display: none; }
+    .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .nav-links {
+      display: none; position: absolute; top: 60px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      flex-direction: column; gap: 0; padding: 0.5rem 0; z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links button { padding: 0.85rem 1.25rem; text-align: left; border-radius: 0; font-size: 0.95rem; }
+    .nav-links button.active::after { display: none; }
+    .nav-links button.active { background: var(--slate-50); }
+    .nav-links .mobile-donate-cta {
+      background: var(--navy-900); color: var(--white); margin: 0.5rem 1rem 0.25rem; border-radius: 3px;
+      text-align: center; font-weight: 500;
+    }
+    .nav-links .mobile-donate-cta:hover { background: var(--navy-800); color: var(--white); }
+
+    /* Hero */
+    .hero { padding: 3rem 1.25rem 3.5rem; }
+    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 1rem; }
+    .hero h1 { font-size: 1.7rem; line-height: 1.2; }
+    .hero-lede { font-size: 0.98rem; margin-bottom: 2rem; }
+    .hero-btns { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+    .btn-primary, .btn-outline { padding: 0.85rem 1.5rem; font-size: 0.92rem; width: 100%; min-height: 44px; }
+
+    /* Stats — single column with bottom borders instead of right borders */
+    .stats-inner { grid-template-columns: 1fr; }
+    .stat-item { padding: 1.25rem 1.25rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-item:last-child { border-bottom: none; }
+    .stat-num { font-size: 1.8rem; }
+
+    /* Sections */
+    .section { padding: 3rem 1.25rem; }
+    .section h2 { font-size: 1.5rem; }
+    .section > .section-intro { margin-bottom: 2.5rem; font-size: 0.95rem; }
+    .cards-grid { gap: 1rem; grid-template-columns: 1fr; }
+    .card { padding: 1.5rem; }
+
+    /* Impact strip */
+    .impact-strip { padding: 3rem 1.25rem; }
+    .impact-strip blockquote { font-size: 1.1rem; }
+
+    /* Page header */
+    .page-header { padding: 2.5rem 1.25rem 2.25rem; }
+    .page-header h1 { font-size: 1.65rem; }
+    .page-header p { font-size: 0.95rem; }
+    .breadcrumb { font-size: 0.75rem; margin-bottom: 0.85rem; }
+
+    /* About two-col */
+    .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    /* Board */
+    .board-grid { grid-template-columns: 1fr; }
+    .board-card { padding: 1.5rem; gap: 1rem; }
+    .board-photo, .board-avatar { width: 56px; height: 56px; }
+
+    /* Testimonials */
+    .featured-testimonial { padding: 2.5rem 1.5rem; }
+    .featured-testimonial::before { top: 1.5rem; left: 1.5rem; }
+    .featured-testimonial blockquote { font-size: 1.05rem; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .testimonial-card { padding: 1.5rem; }
+    .category-header { margin-top: 3rem; }
+
+    /* Info panel */
+    .info-panel { padding: 1.75rem; margin-top: 3rem; }
+
+    /* Get Involved */
+    .involve-options { grid-template-columns: 1fr; gap: 1rem; }
+    .involve-card { padding: 1.5rem; }
+    .donate-section { padding: 3rem 1.25rem; margin-top: 3rem; }
+    .donate-inner h2 { font-size: 1.35rem; }
+    .amount-pills { gap: 0.5rem; }
+    .pill { padding: 0.65rem 1rem; min-width: 65px; font-size: 0.9rem; min-height: 44px; }
+    .donate-btn { padding: 0.95rem 2rem; font-size: 0.95rem; min-height: 48px; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.25rem; margin: 3rem auto; }
+    .form-group input, .form-group textarea, .form-group select { padding: 0.85rem 0.9rem; font-size: 1rem; min-height: 44px; }
+    .form-group textarea { min-height: 130px; }
+    .form-submit { padding: 1rem 2rem; min-height: 48px; width: 100%; }
+
+    /* Footer */
+    footer { padding: 2.5rem 1.25rem 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .footer-bottom p { font-size: 0.75rem; }
+  }
+
+  /* SMALL MOBILE: ≤ 380px (older/smaller phones) */
+  @media (max-width: 380px) {
+    .nav-logo-text { font-size: 0.92rem; }
+    .hero h1 { font-size: 1.5rem; }
+    .stat-num { font-size: 1.6rem; }
+    .section h2, .page-header h1 { font-size: 1.4rem; }
+  }
+
+  /* LANDSCAPE PHONES & SMALL TABLETS: prevent over-tall hero */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .hero { padding: 2.5rem 1.5rem 2.5rem; }
+    .page-header { padding: 2rem 1.5rem; }
+  }
   .two-col h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--navy-900); margin-bottom: 0.6rem; }
   .two-col p { color: var(--slate-700); line-height: 1.75; margin-bottom: 1.1rem; font-size: 0.95rem; }
   .value-item { padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
@@ -252,13 +392,17 @@
       <div class="nav-logo-sub">Healthcare in Jamaica</div>
     </div>
   </div>
-  <div class="nav-links">
+  <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+    <svg id="menu-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links" id="nav-links">
     <button class="active" onclick="showPage('home', this)">Home</button>
     <button onclick="showPage('about', this)">About</button>
     <button onclick="showPage('board', this)">Board</button>
     <button onclick="showPage('testimonials', this)">Testimonials</button>
     <button onclick="showPage('involve', this)">Get Involved</button>
     <button onclick="showPage('contact', this)">Contact</button>
+    <button class="mobile-donate-cta" onclick="showPage('involve', document.querySelector('.nav-links button:nth-child(5)'))">Donate</button>
   </div>
   <button class="nav-cta" onclick="showPage('involve', document.querySelector('.nav-links button:nth-child(5)'))">Donate</button>
 </nav>
@@ -836,11 +980,24 @@
 <script>
 function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-links button:not(.mobile-donate-cta)').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  if (btn) btn.classList.add('active');
+  if (btn && !btn.classList.contains('mobile-donate-cta')) btn.classList.add('active');
+  // Close mobile menu when navigating
+  document.getElementById('nav-links').classList.remove('open');
   window.scrollTo(0, 0);
 }
+function toggleMobileNav() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('nav-links');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+    nav.classList.remove('open');
+  }
+});
 function selectPill(el) {
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
   el.classList.add('selected');
